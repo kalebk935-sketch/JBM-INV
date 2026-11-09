@@ -14,3 +14,24 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('Intersec
 
   sections.forEach((section) => observer.observe(section));
 }
+
+const invitationAudio = document.querySelector('#invitation-audio');
+
+if (invitationAudio) {
+  const removeAudioStartListeners = () => {
+    document.removeEventListener('pointerdown', startAudio);
+    document.removeEventListener('keydown', startAudio);
+  };
+
+  const startAudio = () => {
+    invitationAudio.play().then(removeAudioStartListeners).catch((error) => {
+      if (error.name !== 'NotAllowedError') {
+        console.error('La musique de l’invitation n’a pas pu être lancée.', error);
+      }
+    });
+  };
+
+  document.addEventListener('pointerdown', startAudio);
+  document.addEventListener('keydown', startAudio);
+  startAudio();
+}
