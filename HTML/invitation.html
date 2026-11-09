@@ -16,7 +16,26 @@
     <span class="wordmark" aria-label="INVITIA">INVITIA<span class="wordmark-dot">.</span></span>
   </header>
 
-  <main class="invitation-layout">
+  <section class="invitation-gate" id="invitation-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-frame">
+      <p class="eyebrow gate-eyebrow">INVITIA · UNE ATTENTION POUR VOUS</p>
+      <div class="gate-lock" aria-hidden="true">
+        <span class="gate-lock-shackle"></span>
+        <span class="gate-lock-body"><i></i></span>
+      </div>
+      <h1 id="gate-title">Un moment précieux<br><em>vous attend</em></h1>
+      <p class="gate-intro">Cette invitation vous est réservée.<br>Entrez votre code personnel pour la découvrir.</p>
+      <form class="gate-form" id="invitation-code-form" novalidate>
+        <label class="visually-hidden" for="invitation-code">Votre code à 5 chiffres</label>
+        <input id="invitation-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{5}" maxlength="5" placeholder="· · · · ·" aria-describedby="gate-message" required>
+        <button class="gate-submit" type="submit">Ouvrir mon invitation <span aria-hidden="true">↗</span></button>
+      </form>
+      <p class="gate-message" id="gate-message" role="status" aria-live="polite">Un code à 5 chiffres vous a été communiqué.</p>
+      <div class="fine-ornament gate-ornament" aria-hidden="true"><span></span><i>✳</i><span></span></div>
+    </div>
+  </section>
+
+  <main class="invitation-layout" id="invitation-content" hidden inert>
     <section class="cover" aria-labelledby="cover-title">
       <img class="cover-image" src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=2200&q=85" alt="Le Parthénon au coucher du soleil, sur l’Acropole d’Athènes" fetchpriority="high">
       <div class="cover-shade" aria-hidden="true"></div>
@@ -101,12 +120,13 @@
     </section>
 
     <footer class="invitation-footer">
-      <audio id="invitation-audio" autoplay loop preload="auto" aria-hidden="true"><source src="../Resources/audio/serenade.wav" type="audio/wav"></audio>
+      <audio id="invitation-audio" loop preload="auto" aria-hidden="true"><source src="../Resources/audio/Canon%20in%20D%20(Pachelbel_s%20Canon)%20-%20Cello%20_%20Piano%20[BEST%20WEDDING%20VERSION](MP3_160K).mp3" type="audio/mpeg"></audio>
       <div class="fine-ornament" aria-hidden="true"><span></span><i>✳</i><span></span></div>
       <p>Avec tout notre amour</p>
       <span class="footer-wordmark">INVITIA</span>
     </footer>
   </main>
+  <script src="../Script/invitation-codes.js" defer></script>
   <script src="../Script/animations.js" defer></script>
 </body>
 </html>
