@@ -242,8 +242,11 @@ h1 em, h2 em { color: var(--rose); font-weight: 400; }
 .section-shell { max-width: var(--content); margin: 0 auto; padding-right: clamp(25px, 7vw, 100px); padding-left: clamp(25px, 7vw, 100px); }
 .couple-section { padding-top: clamp(100px, 15vw, 175px); padding-bottom: clamp(105px, 15vw, 180px); text-align: center; }
 .names-lockup { margin: 38px auto 25px; }
-.names-lockup h2 { margin: 0; font-family: var(--serif); font-size: clamp(54px, 9.5vw, 98px); font-weight: 400; line-height: .88; }
-.ampersand { display: block; margin: 13px 0 15px; color: var(--gold); font-family: var(--serif); font-size: 34px; font-style: italic; }
+.names-lockup h2 { margin: 0; font-family: var(--serif); font-size: clamp(58px, 10.5vw, 106px); font-weight: 400; line-height: .9; letter-spacing: .015em; }
+.name-bride { color: var(--ink); }
+.name-groom { color: var(--rose); font-style: italic; }
+.ampersand { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 18px auto 20px; color: var(--gold); font-family: var(--serif); font-size: 30px; font-style: italic; }
+.ampersand::before, .ampersand::after { width: 42px; height: 1px; background: var(--gold-light); content: ""; }
 .fine-ornament { display: flex; align-items: center; justify-content: center; gap: 13px; margin: 30px auto; color: var(--gold); }
 .fine-ornament span { width: 47px; height: 1px; background: var(--gold-light); }
 .fine-ornament i { font-size: 13px; font-style: normal; }
@@ -349,7 +352,7 @@ h1 em, h2 em { color: var(--rose); font-weight: 400; }
   .cover-caption span:first-child { max-width: 125px; text-align: left; }
   .cover-caption span:last-child { max-width: 125px; text-align: right; }
   .couple-section { padding-top: 94px; padding-bottom: 100px; }
-  .names-lockup h2 { font-size: clamp(48px, 13vw, 72px); }
+  .names-lockup h2 { font-size: clamp(52px, 13vw, 78px); }
   .couple-description { font-size: 19px; }
   .guest-section { padding-right: 16px; padding-left: 16px; }
   .guest-frame { padding-right: 20px; padding-left: 20px; }
