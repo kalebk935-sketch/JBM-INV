@@ -176,8 +176,14 @@ h1 em, h2 em { color: var(--rose); font-weight: 400; }
   text-align: center;
 }
 .cover-image, .cover-shade { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; }
-.cover-image { object-fit: cover; object-position: center 52%; animation: image-arrive 1.5s cubic-bezier(.2, .6, .2, 1) both; }
-.cover-shade { z-index: -1; background: linear-gradient(180deg, rgb(31 26 22 / 35%), rgb(31 26 22 / 45%) 55%, rgb(31 26 22 / 60%)); }
+.cover-image {
+  object-fit: cover;
+  object-position: center 52%;
+  filter: saturate(0.9) contrast(1.08) brightness(0.78);
+  transform: scale(1.04);
+  animation: image-arrive 1.5s cubic-bezier(.2, .6, .2, 1) both;
+}
+.cover-shade { z-index: -1; background: linear-gradient(180deg, rgb(31 26 22 / 20%), rgb(31 26 22 / 34%) 52%, rgb(31 26 22 / 48%)); }
 .cover-arch {
   position: absolute;
   inset: clamp(18px, 4vw, 54px) clamp(17px, 7vw, 100px) 32px;
@@ -212,9 +218,10 @@ h1 em, h2 em { color: var(--rose); font-weight: 400; }
   font-size: clamp(66px, 7vw, 88px);
   font-weight: 400;
   line-height: .78;
+  text-shadow: 0 4px 22px rgb(17 13 10 / 35%);
 }
 .cover h1 em { display: inline-block; margin-top: 15px; color: #ead9b6; }
-.cover-date { margin: 26px 0 25px; color: #f3eadb; font-size: 12px; letter-spacing: 1.3px; }
+.cover-date { margin: 26px 0 25px; color: #f3eadb; font-size: 12px; letter-spacing: 1.3px; text-shadow: 0 2px 12px rgb(17 13 10 / 35%); }
 .enter-link {
   display: inline-flex;
   min-height: 50px;
@@ -253,28 +260,35 @@ h1 em, h2 em { color: var(--rose); font-weight: 400; }
 
 .venue-section { padding-top: clamp(90px, 13vw, 150px); padding-bottom: clamp(100px, 14vw, 160px); }
 .section-heading { text-align: center; }
-.venue-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(35px, 8vw, 90px); align-items: center; margin-top: 60px; }
-.venue-illustration {
-  position: relative;
-  display: flex;
-  min-height: 380px;
-  align-items: end;
-  justify-content: center;
-  overflow: hidden;
-  border: 1px solid rgb(168 137 88 / 55%);
-  background: linear-gradient(180deg, #d9cdb6 0%, #ebe2d3 63%, #c8b99c 100%);
+.venue-photo-figure {
+  display: grid;
+  justify-items: center;
+  width: min(100%, 940px);
+  margin: clamp(38px, 6vw, 64px) auto 42px;
+  padding: clamp(12px, 2.4vw, 25px);
+  background: linear-gradient(145deg, #fffdf8, #eee6d8);
+  box-shadow: 0 24px 70px rgb(65 49 29 / 12%);
 }
-.venue-illustration::before { position: absolute; inset: 12px; border: 1px solid rgb(255 250 240 / 75%); content: ""; }
-.venue-illustration::after { position: absolute; right: 12px; bottom: 12px; left: 12px; height: 36%; background: linear-gradient(165deg, transparent 0 28%, rgb(119 127 92 / 50%) 29% 42%, transparent 43%), linear-gradient(195deg, transparent 0 30%, rgb(106 112 77 / 48%) 31% 49%, transparent 50%); content: ""; }
-.venue-sun { position: absolute; top: 55px; right: 18%; width: 82px; aspect-ratio: 1; border-radius: 50%; background: rgb(255 250 231 / 70%); }
-.venue-building { position: relative; z-index: 1; display: flex; width: 75%; height: 64%; align-items: stretch; justify-content: space-evenly; padding: 52px 13px 0; border-top: 17px solid #f2ecdf; background: #ded3c1; box-shadow: 0 -7px 0 rgb(168 137 88 / 70%), 0 -15px 0 #f2ecdf; }
-.venue-building::before { position: absolute; top: -56px; left: -8%; width: 116%; height: 40px; border: 1px solid rgb(168 137 88 / 70%); background: #f2ecdf; content: ""; clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%); }
-.venue-building i { width: 13%; height: 100%; border: 5px double #b8a98c; border-bottom: 0; background: repeating-linear-gradient(90deg, transparent 0 5px, rgb(168 137 88 / 23%) 6px 7px); }
-.venue-image-caption { position: absolute; z-index: 2; bottom: 24px; color: #fffaf0; font-size: 7px; text-shadow: 0 1px 5px #312c24; }
-.venue-details { padding: 5px 0; }
+.venue-photo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 78svh;
+  filter: saturate(0.94) contrast(1.03);
+}
+.venue-image-caption { margin-top: 15px; color: var(--gold); font-size: 8px; font-weight: 600; letter-spacing: 1.8px; text-align: center; }
+.venue-details {
+  max-width: 790px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 48px) clamp(22px, 6vw, 64px);
+  border-top: 1px solid var(--gold-light);
+  background: rgb(238 231 217 / 48%);
+  text-align: center;
+}
 .venue-name { margin: 0 0 12px; font-family: var(--serif); font-size: 37px; line-height: 1.05; }
-.venue-description, .venue-details address { max-width: 415px; color: var(--muted); font-size: 13px; font-style: normal; white-space: pre-line; }
-.event-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 440px; margin-top: 32px; padding: 18px 0; border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light); }
+.venue-description, .venue-details address { max-width: 500px; margin-right: auto; margin-left: auto; color: var(--muted); font-size: 13px; font-style: normal; white-space: pre-line; }
+.event-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 500px; margin: 28px auto 0; padding: 18px 0; border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light); text-align: left; }
 .event-facts div { display: flex; flex-direction: column; gap: 4px; }
 .event-facts div span:last-child { font-family: var(--serif); font-size: 19px; }
 .fact-label { color: var(--gold); font-size: 8px; }
@@ -340,9 +354,9 @@ h1 em, h2 em { color: var(--rose); font-weight: 400; }
   .guest-section { padding-right: 16px; padding-left: 16px; }
   .guest-frame { padding-right: 20px; padding-left: 20px; }
   .guest-message { font-size: 19px; }
-  .venue-layout { grid-template-columns: 1fr; gap: 33px; margin-top: 42px; }
-  .venue-illustration { min-height: 300px; }
-  .venue-details { padding: 0 4px; }
+  .venue-photo-figure { margin: 35px auto 30px; }
+  .venue-photo { max-height: 72svh; }
+  .venue-details { padding: 28px 20px; }
   .venue-name { font-size: 33px; }
   .event-facts { grid-template-columns: 1.15fr .85fr; }
   .program-section { padding-right: 22px; padding-left: 22px; }
